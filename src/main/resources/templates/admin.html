@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <html>
+  <head>
+    <style>
+      label {
+        display: block;
+      }
+    </style>
+    <title>Admin Page</title>
+  </head>
+  <body>
+
+  <form method="post" action="product?edit=product">
+    Product Name:<label>
+    <input name="product-name" value="<%= editProduct.getName() %>"></label>
+    Product Price:<label>
+    <input name="product-price" value="
+<%= editProduct.getProductPrice() %>">
+  </label>
+    Product Quantity:<label>
+    <input name="product-quantity" value="
+<%= editProduct.getQuantity() %>">
+  </label>
+    Product Category:<label>
+    <input name="product-category" value="<%= editProduct.getCategory() %>"></label>
+    Product Image:<label>
+    <input name="product-image" value="<%= editProduct.getImagePath() %>"></label>
+    <input hidden="hidden" name="id" value="<%= editProduct.getId()%>">
+    <button type="submit">Edit Product</button>
+  </form>
+
+  <% }
+  else {
+  %><form method="post" action="product?admin=product">
+    Product Name:<label>
+    <input name="product-name">
+  </label>
+    Product Image:<label>
+    <input name="product-image">
+  </label>
+    Product Price:<label>
+    <input name="product-price">
+  </label>
+    Product Quantity:<label>
+    <input name="product-quantity">
+  </label>
+    Product Category:<label>
+    <input name="product-category">
+  </label>
+    <button type="submit">Add Product</button>
+
+  </form>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1529148482759-b35b25c5f217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxpYnJhcnl8ZW58MHx8MHx8fDA%3D') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Add other styles as needed for your content */
+    .content {
+      text-align: center;
+      padding: 50px;
+      color: white;
+    }
+  </style>
+
+
+  <%}%>
+  <a href="product?admin=view-product">View Product</a>
+  <%--<a href="product?admin=view-product"><button class="btn btn-success mt-3 mb-3">Refresh Products</button></a>--%>
